@@ -14,6 +14,8 @@ Mengkontes is a repository for Final Project of Web Application Development. The
 ## Requirements
 - PHP >= 7.3.0
 - Laravel 8
+- laravel/ui
+- Bootstrap 3
 
 ## Usage
 1. Clone this repository.

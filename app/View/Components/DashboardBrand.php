@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class NavbarBrand extends Component
+class DashboardBrand extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class NavbarBrand extends Component
      */
     public function render()
     {
-        return view('components.navbar-brand');
+        return view('components.dashboard-brand');
     }
 }

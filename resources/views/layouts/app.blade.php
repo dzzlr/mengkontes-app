@@ -17,14 +17,18 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-        @include('partials.navbar')
+        <livewire:navigation-bar/>
 
-        <main class="py-4">
+        @if (request()->is('home*'))
+            <hr class="p-0 m-0" style="background-color: #dfdfdf">
+            <x-dashboard-brand/>
+        @endif
+        
+        <main class="container py-4">
             @yield('content')
         </main>
     </div>
