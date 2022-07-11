@@ -15,6 +15,12 @@ use Inertia\Inertia;
 |
 */
 
+Route::get('/competitions', function () {
+    return Inertia::render('Competition', [
+
+    ]);
+});
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
