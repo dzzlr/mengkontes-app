@@ -19,7 +19,7 @@ Route::get('/competitions', function () {
     return Inertia::render('Competition', [
 
     ]);
-});
+})->name('competitions');
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
