@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #141D2B">
     <div class="container">
         <livewire:application-brand/>
 
@@ -10,10 +10,19 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link {{ (request()->is('competitions*')) ? 'active' : '' }}" href="{{ route('competitions') }}">{{ __('Competitions') }}</a>
+                    <a class="nav-link {{ (request()->is('competitions*')) ? 'active' : '' }}" href="{{ route('competitions.index') }}">{{ __('Competitions') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">{{ __('Webinar') }}</a>
+                    <a class="nav-link" href="">{{ __('Webinars') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">{{ __('Blogs') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ (request()->is('news*')) ? 'active' : '' }}" href="{{ route('news.index') }}">{{ __('News') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">{{ __('About Us') }}</a>
                 </li>
             </ul>
 
@@ -44,3 +53,14 @@
         </div>
     </div>
 </nav>
+
+<script>
+    window.addEventListener('scroll',(e) => {
+        const nav = document.querySelector('.navbar');
+        if (window.pageYOffset > 0) {
+            nav.classList.add("shadow");
+        } else {
+            nav.classList.remove("shadow");
+        }
+    });
+</script>

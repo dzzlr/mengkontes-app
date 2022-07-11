@@ -13,7 +13,34 @@
                         <span><i class="bi bi-plus-lg fw-bold"></i>
                         </span>&nbsp;{{ __('Add Competition') }}
                     </a>
-                    <table class="table table-bordered table-striped">
+
+                    <div class="card">
+                        <div class="card-header row">
+                            <div class="col-1">Id</div>
+                            <div class="col-2">Title</div>
+                            <div class="col-2">Slug</div>
+                            <div class="col-2">Date</div>
+                            <div class="col-1">Time</div>
+                            <div class="col-1">Max. Person</div>
+                            <div class="col-2">Action</div>
+                        </div>
+                        @foreach ($data as $key=>$row)
+                            <div class="card-body row">
+                                <div class="col-1">{{ $row->id }}</div>
+                                <div class="col-2">{{ $row->title }}</div>
+                                <div class="col-2">{{ $row->slug }}</div>
+                                <div class="col-2">{{ $row->date }}</div>
+                                <div class="col-1">{{ $row->time }}</div>
+                                <div class="col-1">{{ $row->max_person }}</div>
+                                <div class="col-3">
+                                    <a class="btn btn-sm btn-info me-1 mb-1" href="{{ 'competitions/view/' . $row->slug }}"> {{ __('View') }} </a>
+                                    <a class="btn btn-sm btn-primary me-1 mb-1" href="{{ 'competitions/edit/' . $row->slug }}"> {{ __('Edit') }} </a>
+                                    <button class="btn btn-sm btn-danger me-1 mb-1" type="submit">Delete</button>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                    {{-- <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th scope="col">Id</th>
@@ -42,7 +69,7 @@
                             </tr>
                         @endforeach
                         </tbody>
-                    </table>
+                    </table> --}}
                 </div> 
             </div>
         </div>
