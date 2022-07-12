@@ -2,7 +2,7 @@
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
+use App\Http\Controllers\FrontController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,24 +14,18 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/competitions', function () {
-    return Inertia::render('Competition', [
-
-    ]);
-});
+// Auth::routes();
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return view('pages.welcome');
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/competitions', [FrontController::class, 'indexCompetitions'])->name('competitions.index');
+Route::get('/competitions/slug', [FrontController::class, 'showCompetitions'])->name('competitions.show');
+Route::get('/news', [FrontController::class, 'indexNews'])->name('news.index');
+Route::get('/news/{slug}', [FrontController::class, 'showNews'])->name('news.show');
+Route::get('/test', [FrontController::class, 'showTest']);
 
 require __DIR__.'/auth.php';
