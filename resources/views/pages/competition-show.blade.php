@@ -72,13 +72,22 @@
                         <p class="text-white m-0"><span class="fw-bold">19 </span>challenges</p>
                     </div>
                 </div>
-                <div class="d-flex flex-row">
+                <div class="mb-3 d-flex flex-row">
                     <div class="px-2 text-white-50 fs-3">
                         <span><i class="bi bi-geo-alt-fill"></i></span>
                     </div>
                     <div class="px-2">
                         <p class="text-white-50 m-0">{{ _('Location') }}</p>
                         <p class="text-white m-0">Online</p>
+                    </div>
+                </div>
+                <div class="mb-3 d-flex flex-row">
+                    <div class="px-2 text-white-50 fs-3">
+                        <span><i class="bi bi-journal-text"></i></span>
+                    </div>
+                    <div class="px-2">
+                        <p class="text-white-50 m-0">{{ _('Guidebook') }}</p>
+                        <a class="text-white m-0" href="">HTB CTF Guidebook.pdf</a>
                     </div>
                 </div>
             </div>

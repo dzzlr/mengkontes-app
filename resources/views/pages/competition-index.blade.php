@@ -4,24 +4,23 @@
 
 @section('content')
 
-<div class="mb-3" style="background-color: #141D2B; padding-top: 4rem;">
+<x-navigation-competition />
+{{-- <div class="mb-3" style="background-color: #141D2B; padding-top: 4rem;">
     <div class="container">
         <div class="d-flex flex-row">
             <div class="p-2 px-3 border-bottom border-3">
                 <a class="text-white text-decoration-none fw-bold" href="">{{ _('All') }}</a>
             </div>
+            <x-navigation-link title="All" url="all" href="{{ route('competitions.index') }}" />
             <div class="p-2 px-3">
                 <a class="text-white-50 text-decoration-none" href="">{{ _('Capture The Flag') }}</a>
             </div>
-            <div class="p-2 px-3">
-                <a class="text-white-50 text-decoration-none" href="">{{ _('Competitive Programming') }}</a>
-            </div>
-            <div class="p-2 px-3">
-                <a class="text-white-50 text-decoration-none" href="">{{ _('Data Mining') }}</a>
-            </div>
+            <x-navigation-link title="Capture The Flag" url="capture-the-flag" href="{{ route('competitions.ctf') }}" />
+            <x-navigation-link title="Competitive Programming" url="competitive-programming" href="" />
+            <x-navigation-link title="Data Mining" url="data-mining" href="" />
         </div>
     </div>
-</div>
+</div> --}}
 
 <div class="container">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2 g-lg-3">
@@ -36,7 +35,7 @@
                         29th August, 2022</p>
                     <div class="d-flex gap-2">
                         <a href="#" class="btn btn-primary">{{ _('Sign Up') }}</a>
-                        <a href="{{ route('competitions.show') }}" class="btn btn-outline-secondary">
+                        <a href="{{ route('competitions.show') }}" class="btn btn-outline-secondary" title="Overview">
                             <span><i class="bi bi-info-circle-fill"></i></span></a>
                     </div>
                 </div>
@@ -61,12 +60,6 @@
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="p-3 border bg-light">Row column</div>
-        </div>
-        <div class="col">
-            <div class="p-3 border bg-light">Row column</div>
         </div>
     </div>
 </div>

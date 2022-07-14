@@ -15,12 +15,12 @@
     <div class="container">
         @foreach ($data as $key)
             <div class="mb-3 row col-12 col-md-8 col-lg-6 mx-auto">
-                <div class="col">
+                <div class="col mt-1">
                     @php
                         $day = $key->created_at;
                         $day = date("jS F, Y", strtotime($day));
                     @endphp
-                    <p class="text-white-50 lead">{{ $day }}</p>
+                    <p class="text-white-50">{{ $day }}</p>
                 </div>
                 <div class="col-8">
                     <a class="text-white text-decoration-none lead fw-bold" href="{{ route('news.show', $key->slug) }}">{{ $key->title }}</a>

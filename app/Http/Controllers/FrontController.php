@@ -14,6 +14,24 @@ class FrontController extends Controller
         ]);
     }
 
+    public function showCompetitionsCTF()
+    {
+        return view('pages.competition-ctf', [
+        ]);
+    }
+
+    public function showCompetitionsCP()
+    {
+        return view('pages.competition-cp', [
+        ]);
+    }
+
+    public function showCompetitionsDM()
+    {
+        return view('pages.competition-dm', [
+        ]);
+    }
+
     public function showCompetitions()
     {
         // $data = Competition::where('slug', $slug)->first();
