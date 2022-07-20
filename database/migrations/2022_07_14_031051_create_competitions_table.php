@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('competitions', function (Blueprint $table) {
             $table->id();
+            $table->text('title');
+            $table->text('description');
+            $table->enum('category', ['capture-the-flag', 'competitive-programming', 'data-mining']);
             $table->timestamps();
         });
     }

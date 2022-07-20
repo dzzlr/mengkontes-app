@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import NavBar from '@/Components/NavBar';
 import CompetitionNav from '@/Components/CompetitionNav';
 import CompetitionCard from '@/Components/CompetitionCard';
-import Paginator from '@/Components/Paginator';
 import { Link, Head } from '@inertiajs/inertia-react';
 
-export default function Competition(props) {
+export default function CompetitionShow(props) {
+  console.log(props)
   return (
     <>
       <Head title="Competitions" />
@@ -25,7 +25,9 @@ export default function Competition(props) {
                 Community Competitions.
               </p>
             </div>
-            <div className="hidden md:w-1/2"></div>
+            <div className="hidden md:w-1/2">
+              
+            </div>
           </div>
 
           <form action="" method="post">
@@ -38,16 +40,12 @@ export default function Competition(props) {
             />
           </form>
 
-          <hr className="mt-4 bg-slate-200" />
+          <hr className="mt-4 bg-slate-200"/>
         </section>
 
         <section className="flex flex-wrap container mx-auto py-4 lg:px-6">
           <CompetitionCard competitions={props.competition.data} />
         </section>
-
-        <div className="flex justify-center items-center">
-          <Paginator meta={props.competition.meta}/>
-        </div>
       </div>
     </>
   );

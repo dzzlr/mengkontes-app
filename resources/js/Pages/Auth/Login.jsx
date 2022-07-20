@@ -8,87 +8,124 @@ import ValidationErrors from '@/Components/ValidationErrors';
 import { Head, Link, useForm } from '@inertiajs/inertia-react';
 
 export default function Login({ status, canResetPassword }) {
-    const { data, setData, post, processing, errors, reset } = useForm({
-        email: '',
-        password: '',
-        remember: '',
-    });
+  const { data, setData, post, processing, errors, reset } = useForm({
+    email: '',
+    password: '',
+    remember: ''
+  });
 
-    useEffect(() => {
-        return () => {
-            reset('password');
-        };
-    }, []);
-
-    const onHandleChange = (event) => {
-        setData(event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value);
+  useEffect(() => {
+    return () => {
+      reset('password');
     };
+  }, []);
 
-    const submit = (e) => {
-        e.preventDefault();
-
-        post(route('login'));
-    };
-
-    return (
-        <Guest>
-            <Head title="Log in" />
-
-            {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
-
-            <ValidationErrors errors={errors} />
-
-            <form onSubmit={submit}>
-                <div>
-                    <Label forInput="email" value="Email" />
-
-                    <Input
-                        type="text"
-                        name="email"
-                        value={data.email}
-                        className="mt-1 block w-full"
-                        autoComplete="username"
-                        isFocused={true}
-                        handleChange={onHandleChange}
-                    />
-                </div>
-
-                <div className="mt-4">
-                    <Label forInput="password" value="Password" />
-
-                    <Input
-                        type="password"
-                        name="password"
-                        value={data.password}
-                        className="mt-1 block w-full"
-                        autoComplete="current-password"
-                        handleChange={onHandleChange}
-                    />
-                </div>
-
-                <div className="block mt-4">
-                    <label className="flex items-center">
-                        <Checkbox name="remember" value={data.remember} handleChange={onHandleChange} />
-
-                        <span className="ml-2 text-sm text-gray-600">Remember me</span>
-                    </label>
-                </div>
-
-                <div className="flex items-center justify-end mt-4">
-                    {canResetPassword && (
-                        <Link
-                            href={route('password.request')}
-                            className="underline text-sm text-gray-600 hover:text-gray-900"
-                        >
-                            Forgot your password?
-                        </Link>
-                    )}
-
-                    <Button className="ml-4" processing={processing}>
-                        Log in
-                    </Button>
-                </div>
-            </form>
-        </Guest>
+  const onHandleChange = (event) => {
+    setData(
+      event.target.name,
+      event.target.type === 'checkbox'
+        ? event.target.checked
+        : event.target.value
     );
+  };
+
+  const submit = (e) => {
+    e.preventDefault();
+
+    post(route('login'));
+  };
+
+  return (
+    <Guest>
+      <Head title="Log in" />
+
+      {status && (
+        <div className="mb-4 font-medium text-sm text-green-600">{status}</div>
+      )}
+
+      <ValidationErrors errors={errors} />
+
+      <div className="max-w-xl mx-auto text-center mb-4">
+        <h4 className="font-bold text-2xl text-black tracking-tight">Log In</h4>
+        <p className="text-base text-slate-500">
+          Don't have an account?{' '}
+          <span>
+            <Link
+              href={route('register')}
+              className="underline underline-offset-1 hover:text-blue-500"
+            >
+              Sign Up
+            </Link>
+          </span>
+        </p>
+      </div>
+
+      <form onSubmit={submit}>
+        <div>
+          <Label forInput="email" value="Email" />
+
+          <Input
+            type="text"
+            name="email"
+            value={data.email}
+            className="mt-1 block w-full"
+            autoComplete="username"
+            isFocused={true}
+            handleChange={onHandleChange}
+          />
+        </div>
+
+        <div className="mt-4">
+          <Label forInput="password" value="Password" />
+
+          <Input
+            type="password"
+            name="password"
+            value={data.password}
+            className="mt-1 block w-full"
+            autoComplete="current-password"
+            handleChange={onHandleChange}
+          />
+        </div>
+
+        <div className="block mt-4">
+          <label className="flex items-center">
+            <Checkbox
+              name="remember"
+              value={data.remember}
+              handleChange={onHandleChange}
+            />
+
+            <span className="ml-2 text-sm text-gray-600">Remember me</span>
+          </label>
+        </div>
+
+        <div className="mt-4 flex flex-col">
+          <button
+            type="submit"
+            className="mb-2 px-3 py-1 w-full lg:py-2 rounded-md font-normal outline outline-1 bg-gradient-to-t from-slate-100 to-white outline-slate-200 text-black hover:shadow-inner duration-150 ease-in-out"
+          >
+            Log In
+          </button>
+          <Link href={route('password.request')} className="mb-1 text-sm text-center underline underline-offset-1 text-slate-500 hover:text-blue-500">
+            Forgot your password?
+          </Link>
+        </div>
+        {/* <div className="flex items-center justify-end mt-4">
+          {canResetPassword && (
+            <Link
+              href={route('password.request')}
+              className="underline text-sm text-gray-600 hover:text-gray-900"
+            >
+              Forgot your password?
+            </Link>
+          )}
+
+          <Button className="ml-4" processing={processing}>
+            Log in
+          </Button>
+        </div> */}
+      </form>
+    </Guest>
+  );
 }

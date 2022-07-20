@@ -2,6 +2,7 @@
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CompetitionController;
 use Inertia\Inertia;
 
 /*
@@ -15,11 +16,14 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/competitions', function () {
-    return Inertia::render('Competition', [
+Route::get('/competitions', [CompetitionController::class, 'index'])->name('competitions.index');
+Route::get('/competitions/{id}', [CompetitionController::class, 'indexByCat'])->name('competitions.show');
 
+// Portfolio
+Route::get('/portfolio', function () {
+    return Inertia::render('Portfolio/Welcome', [
     ]);
-})->name('competitions');
+})->name('portfolio');
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -28,7 +32,7 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+})->name('home');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

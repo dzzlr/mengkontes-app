@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\CompetitionCollection;
+use App\Models\Competition;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class CompetitionController extends Controller
 {
@@ -13,7 +16,18 @@ class CompetitionController extends Controller
      */
     public function index()
     {
-        //
+        $competition = new CompetitionCollection(Competition::paginate(12));
+        return Inertia::render('Competition', [
+            'competition' => $competition
+        ]);
+    }
+
+    public function indexByCat($id)
+    {
+        $competition = new CompetitionCollection(Competition::where('category',$id)->paginate(12));
+        return Inertia::render('CompetitionShow', [
+            'competition' => $competition
+        ]);
     }
 
     /**
