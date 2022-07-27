@@ -41,11 +41,11 @@ export default function Competition(props) {
           <hr className="mt-4 bg-slate-200" />
         </section>
 
-        <section className="flex flex-wrap container mx-auto py-4 lg:px-6">
+        <section className="flex flex-wrap container mx-auto lg:px-6">
           <CompetitionCard competitions={props.competition.data} />
         </section>
 
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center py-4">
           <Paginator meta={props.competition.meta}/>
         </div>
       </div>

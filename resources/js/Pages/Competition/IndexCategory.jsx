@@ -5,7 +5,7 @@ import CompetitionCard from '@/Components/CompetitionCard';
 import { Link, Head } from '@inertiajs/inertia-react';
 
 export default function CompetitionShow(props) {
-  console.log(props)
+  // console.log(props)
   return (
     <>
       <Head title="Competitions" />

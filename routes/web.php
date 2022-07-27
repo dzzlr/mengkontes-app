@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompetitionController;
+use App\Http\Controllers\NewsController;
 use Inertia\Inertia;
 
 /*
@@ -18,6 +19,9 @@ use Inertia\Inertia;
 
 Route::get('/competitions', [CompetitionController::class, 'index'])->name('competitions.index');
 Route::get('/competitions/{id}', [CompetitionController::class, 'indexByCat'])->name('competitions.show');
+Route::get('/competitions/{slug}', [CompetitionController::class, 'show'])->name('competitions.show.slug');
+Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+Route::get('/news/{slug}', [NewsController::class, 'show'])->name('news.show');
 
 // Portfolio
 Route::get('/portfolio', function () {

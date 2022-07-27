@@ -4,8 +4,8 @@ import { Link } from '@inertiajs/inertia-react';
 const isCompetitionsCard = (competitions) => {
   return competitions.map((data, i) => {
     return (
-      <div key={i} className="w-full px-4 lg:w-1/3 xl:w-1/4">
-        <div className="rounded-xl shadow overflow-hidden mb-10">
+      <div key={i} className="w-full px-4 md:w-1/2 lg:w-1/3 xl:w-1/4">
+        <div className="rounded-xl shadow overflow-hidden mb-4">
           <img
             className="w-full"
             src="https://source.unsplash.com/360x200?programming"
