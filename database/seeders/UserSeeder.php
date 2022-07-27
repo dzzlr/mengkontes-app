@@ -4,9 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\News;
+use App\Models\User;
 
-class NewsSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +15,6 @@ class NewsSeeder extends Seeder
      */
     public function run()
     {
-        News::factory()->count(10)->create();
+        User::factory()->count(10)->create();
     }
 }
