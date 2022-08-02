@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\NewsCollection;
+use App\Models\News;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class NewsController extends Controller
 {
@@ -13,7 +16,10 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
+        $news = new NewsCollection(News::all());
+        return Inertia::render('News/Index', [
+            'news' => $news
+        ]);
     }
 
     /**
@@ -43,9 +49,12 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $news = new NewsCollection(News::where('slug',$slug)->paginate(12));
+        return Inertia::render('News/Show', [
+            'news' => $news
+        ]);
     }
 
     /**

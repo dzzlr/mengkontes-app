@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { Link } from '@inertiajs/inertia-react';
-import { usePage } from "@inertiajs/inertia-react";
+import { usePage } from '@inertiajs/inertia-react';
 import NavBarLink from '@/Components/NavBarLink';
 import ApplicationLogo from '@/Components/ApplicationLogo';
+// import route from 'vendor/tightenco/ziggy/src/js';
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
-  const { url } = usePage()
+  const { url } = usePage();
   return (
     <div className="sticky top-0 z-50 bg-white py-1 md:py-3 border-b-2 border-slate-100">
       <div className="flex flex-col container mx-auto lg:px-6 lg:flex-row">
         <div className="flex items-center justify-between px-4 py-2 lg:py-0">
           <div className="flex flex-row">
-            <ApplicationLogo className="translate-y-1.5 mr-1 text-indigo-600"/>
+            <ApplicationLogo className="translate-y-1.5 mr-1 text-indigo-600" />
             <Link href={route('home')} className="font-bold text-lg">
               Meng<span className="text-indigo-600">Kontes</span>
             </Link>
@@ -54,7 +55,7 @@ export default function NavBar() {
           <div className="flex flex-col lg:flex-row">
             <NavBarLink
               href={route('competitions.index')}
-              active={url.startsWith('/competitions') === '/competitions'}
+              active={url.startsWith('/competitions')}
             >
               🏆 Competitions
             </NavBarLink>
@@ -64,7 +65,7 @@ export default function NavBar() {
             <NavBarLink href="" active="">
               📄 Blogs
             </NavBarLink>
-            <NavBarLink href="" active="">
+            <NavBarLink href={route('news.index')} active={url.startsWith('/news')}>
               📰 News
             </NavBarLink>
           </div>
