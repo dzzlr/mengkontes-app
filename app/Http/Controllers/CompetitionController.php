@@ -25,7 +25,7 @@ class CompetitionController extends Controller
     public function indexByCat($id)
     {
         $competition = new CompetitionCollection(Competition::where('category',$id)->paginate(12));
-        return Inertia::render('Competition/IndexCategory', [
+        return Inertia::render('Competition/Index', [
             'competition' => $competition
         ]);
     }

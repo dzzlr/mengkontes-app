@@ -20,6 +20,10 @@ use Inertia\Inertia;
 Route::get('/competitions', [CompetitionController::class, 'index'])->name('competitions.index');
 Route::get('/competitions/{id}', [CompetitionController::class, 'indexByCat'])->name('competitions.show');
 Route::get('/competitions/{slug}', [CompetitionController::class, 'show'])->name('competitions.show.slug');
+Route::get('/events', [EventController::class, 'index'])->name('events.index');
+Route::get('/events/{slug}', [EventController::class, 'show'])->name('events.show');
+Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
+Route::get('/blogs/{slug}', [BlogController::class, 'show'])->name('blogs.show');
 Route::get('/news', [NewsController::class, 'index'])->name('news.index');
 Route::get('/news/{slug}', [NewsController::class, 'show'])->name('news.show');
 

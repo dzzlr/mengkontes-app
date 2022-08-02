@@ -21,7 +21,7 @@ const isCompetitionsCard = (competitions) => {
             <div className="flex gap-2">
               <Link
                 href=""
-                className="py-2.5 px-4 text-sm font-semibold tracking-wide rounded-md text-white bg-indigo-600 hover:shadow-lg hover:opacity-80 duration-150 ease-in-out"
+                className="py-2.5 px-4 text-sm font-semibold tracking-wide rounded-md text-white bg-indigo-600 hover:bg-indigo-800 hover:shadow-lg duration-150 ease-in-out"
               >
                 Sign Up
               </Link>
